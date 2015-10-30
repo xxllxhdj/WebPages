@@ -81,8 +81,8 @@ define(['angular'], function () {
                 return defer.promise;
             }
         }])
-        .controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', '$alert', 'PasswordValidator',
-            function ($scope, $state, $http, $location, $window, $alert, PasswordValidator) {
+        .controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', '$alert', 'PasswordValidator', 'AuthenticationService',
+            function ($scope, $state, $http, $location, $window, $alert, PasswordValidator, AuthenticationService) {
                 $scope.credentials = {
                     email: '',
                     password: ''
@@ -134,8 +134,8 @@ define(['angular'], function () {
                     }
 
                     $http.post('/api/auth/signin', {
-                        username: '610024317@qq.com',
-                        password: 'Xxl123456!'
+                        username: 'test@test.com',
+                        password: 'Xxxl123456!'
                     }).success(function (response) {
                         // If successful we assign the response to the global user model
                         //$scope.authentication.user = response;
@@ -151,6 +151,8 @@ define(['angular'], function () {
                             show: true,
                             animation: 'am-fade-and-slide-top'
                         });
+                        AuthenticationService.isAuthenticated = true;
+                        $window.sessionStorage.token = response.token;
                     }).error(function (response) {
                         //$scope.error = response.message;
                         $alert({

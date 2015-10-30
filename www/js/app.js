@@ -4,8 +4,10 @@ define(['angular', 'angularAnimate', 'angularUiRouter', 'angularMessages', 'angu
 ], function () {
     angular.module('routeApp', ['ngAnimate', 'ui.router', 'ngMessages', 'mgcrea.ngStrap', 'useManagerCtrls', 'routeAppDirectives', 'routeAppServers'])
 
-        .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
-            function ($stateProvider, $urlRouterProvider, $locationProvider) {
+        .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider',
+            function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+
+                $httpProvider.interceptors.push('TokenInterceptor');
                 $urlRouterProvider.otherwise('/');
 
                 $stateProvider

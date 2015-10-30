@@ -119,8 +119,8 @@ UserSchema.methods.hashPassword = function (password) {
 /**
  * Create instance method for authenticating user
  */
-UserSchema.methods.authenticate = function (password) {
-    return this.password === this.hashPassword(password);
+UserSchema.methods.authenticate = function (password, callback) {
+    callback(this.password === this.hashPassword(password));
 };
 
 /**
