@@ -1,6 +1,8 @@
 
-define(['angular', 'angularAnimate', 'angularUiRouter', 'angularStrap', 'angularStrapTpl', 'controllers'], function () {
-    angular.module('routeApp', ['ngAnimate', 'ui.router', 'mgcrea.ngStrap', 'useManagerCtrls'])
+define(['angular', 'angularAnimate', 'angularUiRouter', 'angularMessages', 'angularStrap', 'angularStrapTpl',
+    'controllers', 'directives', 'servers'
+], function () {
+    angular.module('routeApp', ['ngAnimate', 'ui.router', 'ngMessages', 'mgcrea.ngStrap', 'useManagerCtrls', 'routeAppDirectives', 'routeAppServers'])
 
         .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
             function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -50,6 +52,16 @@ define(['angular', 'angularAnimate', 'angularUiRouter', 'angularStrap', 'angular
                     .state('index.usemanager.addusertype', {
                         url: '/addusertype',
                         templateUrl: 'tpls/addusertype.html'
+                    })
+
+                    .state('signin', {
+                        url: '/signin',
+                        templateUrl: 'tpls/user/signin.html'
+                    })
+                    .state('signup', {
+                        url: '/signup',
+                        templateUrl: 'tpls/user/signup.html',
+                        controller: 'AuthenticationController'
                     });
 
                 $locationProvider.html5Mode(true).hashPrefix('!');

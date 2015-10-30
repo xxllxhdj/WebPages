@@ -1,6 +1,48 @@
 
-body {
-    position: relative;
+/**********************************************************Common******************************************************/
+
+/**********************************************************Common******************************************************/
+
+/**********************************************************Signup******************************************************/
+
+@media (min-width: 768px) {
+    .signup-navbar > .container .navbar-brand {
+        margin-left: 0;
+    }
+}
+
+.signup-navbar {
+    margin-bottom: 0;
+}
+.signup-navbar .navbar-header {
+    float: left;
+}
+.signup-navbar .navbar-right-side {
+    height: 50px;
+    line-height: 50px;
+}
+.signup-navbar .navbar-right-side > *{
+    vertical-align: middle;
+}
+.signup-navbar-title {
+    float: left;
+    height: 50px;
+    padding: 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.signup-navbar-ad {
+    height: 20px;
+    background: url(../img/reg_hr.png) no-repeat center top;
+    margin-bottom: 20px;
+}
+
+/**********************************************************Signup******************************************************/
+
+/**********************************************************NavBar******************************************************/
+
+.main-container {
     padding-top: 70px;
 }
 
@@ -67,3 +109,5 @@ body {
 .ui-group {
     margin-bottom: 0;
 }
+
+/**********************************************************NavBar******************************************************/

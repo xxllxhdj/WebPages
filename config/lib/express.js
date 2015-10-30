@@ -132,6 +132,15 @@ module.exports.initModulesClientRoutes = function (app) {
     app.use(express.static(path.resolve('./' + config.webDir)));
 };
 
+/**
+ * Configure the modules ACL policies
+ */
+module.exports.initModulesServerPolicies = function (app) {
+    // Globbing policy files
+    config.files.server.policies.forEach(function (policyPath) {
+        require(path.resolve(policyPath)).invokeRolesPolicies();
+    });
+};
 
 /**
  * Configure the modules server routes
@@ -167,6 +176,9 @@ module.exports.init = function (db) {
 
     // Initialize modules static client routes
     this.initModulesClientRoutes(app);
+
+    // Initialize modules server authorization policies
+    this.initModulesServerPolicies(app);
 
     // Initialize modules server routes
     this.initModulesServerRoutes(app);

@@ -4,12 +4,16 @@ requirejs.config({
     paths: {
         app: 'app',
         controllers: 'controllers',
+        directives: 'directives',
+        servers: 'servers',
         jquery: '../lib/jquery/dist/jquery',
         angular: '../lib/angular/angular',
         angularAnimate: '../lib/angular-animate/angular-animate',
         angularUiRouter: '../lib/angular-ui-router/release/angular-ui-router',
+        angularMessages: '../lib/angular-messages/angular-messages',
         angularStrap: '../lib/angular-strap/dist/angular-strap',
-        angularStrapTpl: '../lib/angular-strap/dist/angular-strap.tpl'
+        angularStrapTpl: '../lib/angular-strap/dist/angular-strap.tpl',
+        owaspPasswordStrengthTest: '../lib/owasp-password-strength-test/owasp-password-strength-test'
     },
     shim: {
         //angular: {
@@ -19,6 +23,9 @@ requirejs.config({
             deps: ['angular']
         },
         angularUiRouter: {
+            deps: ['angular']
+        },
+        angularMessages: {
             deps: ['angular']
         },
         angularStrap: {

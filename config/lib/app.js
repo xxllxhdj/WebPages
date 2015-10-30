@@ -10,6 +10,8 @@ var config = require('../config'),
 
 
 // Initialize Models
+mongoose.loadModels();
+
 module.exports.loadModels = function loadModels() {
     mongoose.loadModels();
 };

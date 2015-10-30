@@ -1,0 +1,32 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <form name="userForm" ng-submit="signin(userForm.$valid)" class="signin" novalidate autocomplete="off">
+                <fieldset>
+                    <div class="form-group">
+                        <input type="text" name="identify" class="form-control" ng-model="credentials.identify" placeholder="用户名/邮箱" required>
+                        <div ng-messages="userForm.identify.$error" role="alert">
+                            <p class="help-block error-text" ng-message="required">用户名/邮箱不能为空.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" ng-model="credentials.password" placeholder="密码" required>
+                        <div ng-messages="userForm.password.$error" role="alert">
+                            <p class="help-block error-text" ng-message="required">密码不能为空.</p>
+                        </div>
+                    </div>
+                    <div class="text-center form-group">
+                        <button type="submit" class="btn btn-primary">登录</button>
+                        &nbsp; or&nbsp;
+                        <a ui-sref="authentication.signup">注册</a>
+                    </div>
+                    <div class="text-center forgot-password">
+                        <a ui-sref="password.forgot">忘记密码？</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
